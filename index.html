@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>Modal Filter</title>
+  </head>
+  <body>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Filtros
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border border-white">
+            <button type="button" data-bs-dismiss="modal" aria-label="Close">
+              <img src="./assets/Flecha_positivo.svg" alt="arrow back" />
+              Volver
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-filters">
+              <div>
+                <span>Tipo de Inmueble</span>
+                <div>
+                  <label for="type">San José de Cúcuta</label>
+                  <input type="checkbox" id="type" />
+                  <ul>
+                    <li>Ciudadela Atalaya</li>
+                    <li>Ciudadela La Libertad</li>
+                    <li>Comuna del centro</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <span>Estado del Inmueble</span>
+                <div>
+                  <label for="state">San José de Cúcuta</label>
+                  <input type="checkbox" id="state" />
+                  <ul>
+                    <li>Ciudadela Atalaya</li>
+                    <li>Ciudadela La Libertad</li>
+                    <li>Comuna del centro</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <span>Sector o ubicación</span>
+                <div>
+                  <label for="sector">San José de Cúcuta</label>
+                  <input type="checkbox" id="sector" />
+                  <ul>
+                    <li>Ciudadela Atalaya</li>
+                    <li>Ciudadela La Libertad</li>
+                    <li>Comuna del centro</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <span>Número de habitaciones</span>
+                <div>
+                  <label for="rooms">San José de Cúcuta</label>
+                  <input type="checkbox" id="rooms" />
+                  <ul>
+                    <li>Ciudadela Atalaya</li>
+                    <li>Ciudadela La Libertad</li>
+                    <li>Comuna del centro</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <span>Número de baños</span>
+                <div>
+                  <label for="bathrooms">San José de Cúcuta</label>
+                  <input type="checkbox" id="bathrooms" />
+                  <ul>
+                    <li>Ciudadela Atalaya</li>
+                    <li>Ciudadela La Libertad</li>
+                    <li>Comuna del centro</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <span>Estrato</span>
+                <div>
+                  <label for="stratum">San José de Cúcuta</label>
+                  <input type="checkbox" id="stratum" />
+                  <ul>
+                    <li>Ciudadela Atalaya</li>
+                    <li>Ciudadela La Libertad</li>
+                    <li>Comuna del centro</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-ranges">
+              <div>
+                <h3>Área</h3>
+                <div class="wrapper">
+                  <div class="values">
+                    <span id="range1"> </span>
+                    <span> &dash; </span>
+                    <span id="range2"> </span>
+                  </div>
+                  <div class="container">
+                    <div class="slider-track-1"></div>
+                    <input
+                      type="range"
+                      min="500000"
+                      max="100000000"
+                      value="500000"
+                      id="slider-1"
+                    />
+                    <input
+                      type="range"
+                      min="500000"
+                      max="100000000"
+                      value="50000000"
+                      id="slider-2"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3>Rango de precio</h3>
+                <div class="wrapper">
+                  <div class="values">
+                    <span id="range3"> </span>
+                    <span> &dash; </span>
+                    <span id="range4"> </span>
+                  </div>
+                  <div class="container">
+                    <div class="slider-track-2"></div>
+                    <input
+                      type="range"
+                      min="500000"
+                      max="100000000"
+                      value="500000"
+                      id="slider-3"
+                    />
+                    <input
+                      type="range"
+                      min="500000"
+                      max="100000000"
+                      value="50000000"
+                      id="slider-4"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-amenities">
+              <div class="list_checks">
+                <h3>amenidades</h3>
+                <ul>
+                  <li>
+                    <label for="lb1">
+                      <input
+                        type="checkbox"
+                        name="amenities"
+                        value="Parqueaderos"
+                        id="lb1"
+                      />
+                      Parqueaderos
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb2">
+                      <input
+                        type="checkbox"
+                        value="Gimnasio"
+                        name="amenities"
+                        id="lb2"
+                      />
+                      Gimnasio
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb3">
+                      <input
+                        type="checkbox"
+                        value="Salón de eventos"
+                        name="amenities"
+                        id="lb3"
+                      />
+                      Salón de eventos
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb4">
+                      <input
+                        type="checkbox"
+                        value="Área de mascotas"
+                        name="amenities"
+                        id="lb4"
+                      />
+                      Área de mascotas
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb5">
+                      <input
+                        type="checkbox"
+                        value="Balcón"
+                        name="amenities"
+                        id="lb5"
+                      />
+                      Balcón
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb6">
+                      <input
+                        type="checkbox"
+                        value="Piscinas"
+                        name="amenities"
+                        id="lb6"
+                      />
+                      Piscinas
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb7">
+                      <input
+                        type="checkbox"
+                        value="Acabados"
+                        name="amenities"
+                        id="lb7"
+                      />
+                      Acabados
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb8">
+                      <input
+                        type="checkbox"
+                        value="Terraza para eventos"
+                        name="amenities"
+                        id="lb8"
+                      />
+                      Terraza para eventos
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb9">
+                      <input
+                        type="checkbox"
+                        value="Sistema de seguridad"
+                        name="amenities"
+                        id="lb9"
+                      />
+                      Sistema de seguridad
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb10">
+                      <input
+                        type="checkbox"
+                        value="Área social"
+                        name="amenities"
+                        id="lb10"
+                      />
+                      Área social
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb11">
+                      <input
+                        type="checkbox"
+                        value="Spa"
+                        name="amenities"
+                        id="lb11"
+                      />
+                      Spa
+                    </label>
+                  </li>
+                  <li>
+                    <label for="lb12">
+                      <input
+                        type="checkbox"
+                        value="Seguridad privada"
+                        name="amenities"
+                        id="lb12"
+                      />
+                      Seguridad privada
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="list-buttons">
+                <button id="button-search">
+                  buscar
+                  <img src="./assets/Flecha_positivo.svg" alt="arrow send" />
+                </button>
+                <button id="button-clear">
+                  limpiar filtro
+                  <img src="./assets/limpiar_filtro.svg" alt="clear icon" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script async src="./script.js" type="module"></script>
+  </body>
+</html>
