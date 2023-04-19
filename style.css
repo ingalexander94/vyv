@@ -85,9 +85,10 @@
   padding: 0 10px;
   cursor: pointer;
   font-weight: 500;
-  color: var(--gray-color);
+  color: var(--black-color);
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 .modal-filters div div label::before {
@@ -109,7 +110,7 @@
   display: none;
   border-radius: 6px;
   padding: 6px 10px;
-  max-height: 130px;
+  max-height: 145px;
   overflow-y: scroll;
   flex-direction: column;
   box-shadow: 0px 3px 12px #65656545;
@@ -124,6 +125,10 @@
   background: var(--gray-light-color);
 }
 
+.modal-filters div ul:not(.list_numbers) li:nth-child(1) {
+  padding: 15px 0;
+}
+
 .modal-filters div ul::-webkit-scrollbar {
   width: 5px;
 }
@@ -136,6 +141,34 @@
 .modal-filters div ul li {
   padding: 5px 6px;
   font-weight: 300;
+  color: var(--black-color);
+}
+
+.modal-filters div ul.list_numbers {
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 10px;
+  padding: 10px 10px 10px 15px;
+}
+
+.modal-filters div ul.list_numbers li {
+  width: 100%;
+  border-radius: 6px;
+  color: var(--gray-color);
+  text-align: center;
+  font-weight: 500;
+  border: 2px solid var(--gray-light-color);
+}
+
+.modal-filters div ul.list_numbers li.active {
+  border: 2px solid var(--orange-color);
+  background: var(--orange-color);
+  color: var(--white-color);
+}
+
+.modal-filters div ul.list_numbers li:not(.active):hover {
+  background: transparent;
+  border: 2px solid var(--black-color);
 }
 
 .modal-filters div input[type="checkbox"] {
@@ -144,6 +177,10 @@
 
 .modal-filters div input[type="checkbox"]:checked ~ ul {
   display: flex;
+}
+
+.modal-filters div input[type="checkbox"]:checked ~ label {
+  border: 2px solid var(--orange-color);
 }
 
 /* Rangos */
@@ -163,7 +200,7 @@
 }
 
 .modal-ranges {
-  margin: 20px;
+  margin: 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
