@@ -5,7 +5,9 @@ const amenities = $d.querySelectorAll(".list_checks input[type=checkbox]");
 export const getAmenities = () => {
   const queryParams = Array.from(amenities).reduce(
     (acc, cur) =>
-      (acc += `&${encodeURIComponent(cur.value)}=${cur.checked ? 1 : 0}`),
+      (acc += `&${encodeURIComponent(normalizeText(cur.value))}=${
+        cur.checked ? 1 : 0
+      }`),
     ""
   );
   return queryParams;
@@ -19,3 +21,9 @@ export const resetAmenities = () => {
     x.checked = false;
   });
 };
+
+const normalizeText = (text) =>
+  text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();

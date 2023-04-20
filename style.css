@@ -20,6 +20,7 @@
   border: none;
   box-shadow: 0px 0px 30px #00000029;
   overflow: hidden;
+  user-select: none;
 }
 
 .modal-content button {
@@ -88,7 +89,6 @@
   color: var(--black-color);
   position: relative;
   z-index: 1;
-  user-select: none;
 }
 
 .modal-filters div div label::before {
@@ -343,6 +343,10 @@
   row-gap: 10px;
 }
 
+.list-buttons button:active {
+  transform: scale(0.98);
+}
+
 .list-buttons button:nth-child(1) {
   background: var(--orange-color);
   color: white;
@@ -364,6 +368,15 @@
 
   .modal-filters {
     grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .modal-filters div {
+    row-gap: 10px;
+  }
+
+  .modal-filters div div label {
+    padding: 25px 10px;
   }
 
   .modal-ranges {
@@ -400,9 +413,14 @@
     position: fixed;
     left: 20px;
     bottom: 50px;
+    padding-top: 20px;
     width: calc(100% - 40px);
     z-index: 20;
     margin-bottom: 20px;
+  }
+
+  .list-buttons button:nth-child(1) {
+    padding: 10px 0;
   }
 }
 

@@ -3,7 +3,7 @@ const $d = document;
 const selects = $d.querySelectorAll(".modal-filters > div div ul");
 let active = null;
 
-export const selectOption = () => {
+export const initFilters = () => {
   selects.forEach((ul, index) => {
     ul.addEventListener("click", ({ target }) => {
       if (target.tagName === "LI") {
@@ -49,7 +49,7 @@ export const selectOption = () => {
   });
 };
 
-export const resetOptions = () => {
+export const resetFilters = () => {
   selects.forEach((ul) => {
     let label = ul.previousElementSibling;
     label.innerHTML = "";
@@ -67,9 +67,9 @@ export const getFilters = () => {
     if (index < 3) {
       value = label.textContent;
     } else if (index > 2 && index < selects.length - 1) {
-      value = label.textContent.charAt(0);
+      value = label.textContent.slice(0, 2).trim();
     } else {
-      value = label.textContent.slice(-1);
+      value = label.textContent.slice(-2).trim();
     }
     queryParams += `${label.htmlFor}=${encodeURIComponent(value)}&`;
   });
