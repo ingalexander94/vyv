@@ -1,61 +1,47 @@
 const $d = document;
 
-const sliderOne = $d.getElementById("slider-1");
-const sliderTwo = $d.getElementById("slider-2");
-const sliderThree = $d.getElementById("slider-3");
-const sliderFour = $d.getElementById("slider-4");
-const displayValOne = $d.getElementById("range1");
-const displayValTwo = $d.getElementById("range2");
-const displayValThree = $d.getElementById("range3");
-const displayValFour = $d.getElementById("range4");
-const sliderTrackOne = $d.querySelector(".slider-track-1");
-const sliderTrackTwo = $d.querySelector(".slider-track-2");
+const inputRanges = $d.querySelectorAll("div.slide-ranges > div.wrapper");
 
 const minGap = 0;
 
 export const initRanges = () => {
-  slideArea1();
-  slideArea2();
-  slidePrice1();
-  slidePrice2();
-  sliderOne.addEventListener("input", slideArea1);
-  sliderTwo.addEventListener("input", slideArea2);
-  sliderThree.addEventListener("input", slidePrice1);
-  sliderFour.addEventListener("input", slidePrice2);
-};
-
-export const getRanges = () => {
-  const paramsRanges = `minArea=${sliderOne.value}&maxArea=${sliderTwo.value}&minPrecio=${sliderThree.value}&maxPrecio=${sliderFour.value}`;
-  return paramsRanges;
+  inputRanges.forEach((range) => {
+    const [values, container] = range.children;
+    const [displayValOne, , displayValTwo] = values.children;
+    const [sliderTrack, sliderOne, sliderTwo] = container.children;
+    slideLeft(sliderOne, sliderTwo, displayValOne, sliderTrack);
+    slideRight(sliderOne, sliderTwo, displayValTwo, sliderTrack);
+    sliderOne.addEventListener("input", () =>
+      slideLeft(sliderOne, sliderTwo, displayValOne, sliderTrack)
+    );
+    sliderTwo.addEventListener("input", () =>
+      slideRight(sliderOne, sliderTwo, displayValTwo, sliderTrack)
+    );
+  });
 };
 
 export const resetRanges = () => {
-  sliderOne.value = sliderOne.min;
-  sliderTwo.value = sliderTwo.max;
-  sliderThree.value = sliderThree.min;
-  sliderFour.value = sliderFour.max;
-  displayValOne.textContent = formatPrice(sliderOne.value);
-  displayValTwo.textContent = formatPrice(sliderTwo.value);
-  displayValThree.textContent = formatPrice(sliderThree.value);
-  displayValFour.textContent = formatPrice(sliderFour.value);
-  fillColor(sliderOne, sliderTwo, sliderTrackOne);
-  fillColor(sliderThree, sliderFour, sliderTrackTwo);
+  inputRanges.forEach((range) => {
+    const [values, container] = range.children;
+    const [displayValOne, , displayValTwo] = values.children;
+    const [sliderTrack, sliderOne, sliderTwo] = container.children;
+    sliderOne.value = sliderOne.min;
+    sliderTwo.value = sliderTwo.max;
+    displayValOne.textContent = formatPrice(sliderOne.value);
+    displayValTwo.textContent = formatPrice(sliderTwo.value);
+    fillColor(sliderOne, sliderTwo, sliderTrack);
+  });
 };
 
-const slideArea1 = () => {
-  slideLeft(sliderOne, sliderTwo, displayValOne, sliderTrackOne);
-};
-
-const slideArea2 = () => {
-  slideRight(sliderOne, sliderTwo, displayValTwo, sliderTrackOne);
-};
-
-const slidePrice1 = () => {
-  slideLeft(sliderThree, sliderFour, displayValThree, sliderTrackTwo);
-};
-
-const slidePrice2 = () => {
-  slideRight(sliderThree, sliderFour, displayValFour, sliderTrackTwo);
+export const getRanges = () => {
+  let paramsRanges = "";
+  inputRanges.forEach((range) => {
+    const [, container] = range.children;
+    const [, sliderOne, sliderTwo] = container.children;
+    const name = capitalize(sliderOne.name);
+    paramsRanges += `min${name}=${sliderOne.value}&max${name}=${sliderTwo.value}&`;
+  });
+  return paramsRanges.slice(0, -1);
 };
 
 const slideLeft = (slider1, slider2, display, track) => {
@@ -94,3 +80,5 @@ const formatPrice = (price) => {
 
   return currency.format(price);
 };
+
+const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);

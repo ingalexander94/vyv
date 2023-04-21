@@ -185,20 +185,6 @@
 
 /* Rangos */
 
-#range1::after,
-#range2::after {
-  content: " m2";
-}
-
-#range3::before,
-#range4::before {
-  content: "$";
-}
-
-#range4::after {
-  content: " millones";
-}
-
 .modal-ranges {
   margin: 20px 0;
   display: grid;
@@ -233,8 +219,7 @@
   pointer-events: none;
 }
 
-.modal-ranges div .slider-track-1,
-.modal-ranges div .slider-track-2 {
+.modal-ranges div .track {
   width: 100%;
   height: 2px;
   position: absolute;
@@ -306,6 +291,18 @@
   text-align: center;
   font-weight: 500;
   color: var(--black-color);
+}
+
+.modal-ranges div .values span:nth-child(1)::before,
+.modal-ranges div .values span:nth-child(3)::before {
+  content: attr(data-before);
+  margin-left: 5px;
+}
+
+.modal-ranges div .values span:nth-child(1)::after,
+.modal-ranges div .values span:nth-child(3)::after {
+  content: attr(data-after);
+  margin-left: 5px;
 }
 
 /* Amenidades */

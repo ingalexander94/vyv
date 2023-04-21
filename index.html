@@ -127,56 +127,49 @@
             </div>
 
             <div class="modal-ranges">
-              <div>
+              <div class="slide-ranges">
                 <h3>Área</h3>
                 <div class="wrapper">
                   <div class="values">
-                    <span id="range1"> </span>
+                    <span data-before="" data-after="m2"> </span>
                     <span> &dash; </span>
-                    <span id="range2"> </span>
+                    <span data-before="" data-after="m2"> </span>
                   </div>
                   <div class="container">
-                    <div class="slider-track-1"></div>
+                    <div class="track"></div>
                     <input
                       type="range"
                       min="60"
                       max="120"
                       value="60"
-                      id="slider-1"
+                      name="area"
                     />
-                    <input
-                      type="range"
-                      min="60"
-                      max="120"
-                      value="120"
-                      id="slider-2"
-                    />
+                    <input type="range" min="60" max="120" value="120" />
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="slide-ranges">
                 <h3>Rango de precio</h3>
                 <div class="wrapper">
                   <div class="values">
-                    <span id="range3"> </span>
+                    <span data-before="" data-after=""> </span>
                     <span> &dash; </span>
-                    <span id="range4"> </span>
+                    <span data-before="" data-after="millones"> </span>
                   </div>
                   <div class="container">
-                    <div class="slider-track-2"></div>
+                    <div class="track"></div>
                     <input
                       type="range"
                       min="500000"
                       max="1200000"
                       value="500000"
-                      id="slider-3"
+                      name="precio"
                     />
                     <input
                       type="range"
                       min="500000"
                       max="1200000"
                       value="1200000"
-                      id="slider-4"
                     />
                   </div>
                 </div>
